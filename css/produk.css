@@ -1,0 +1,89 @@
+/* tokoKU — halaman produk (dipakai bersama css/style.css) */
+:root{--grad:linear-gradient(135deg,#0447ab,#2a6cd8);--alt:"Montserrat Alternates",var(--f-head);--red:#e5484d;--gray:#5b6577;--hh:190px}
+.pdp *,.pdp-desc *,.pfaq *,.sbar *{margin:0}
+.pdp button,.pdp-desc button,.pfaq button,.sbar button{font-family:inherit;cursor:pointer}
+
+/* Bar nama produk + harga kecil (sticky) */
+.sbar{position:fixed;top:0;left:0;right:0;z-index:50;height:66px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.12);transform:translateY(-110%);transition:transform .25s ease}
+.sbar.on{transform:none}
+.sbar h2{font:600 26px/1.2 var(--alt)}
+.mini{display:flex;align-items:center;gap:22px;opacity:0;visibility:hidden;transition:opacity .2s}
+.sbar.mini-on .mini{opacity:1;visibility:visible}
+.mini .p{text-align:right;line-height:1.2}
+.mini .p b{display:block;font-size:18px;font-family:var(--alt)}
+.mini .p s{font-size:12px;color:var(--gray)}
+.mini .p span{font-size:12px;color:var(--red)}
+.pbtn{height:60px;border-radius:10px;font-family:var(--alt);font-weight:700;font-size:17px;padding:0 12px;white-space:nowrap}
+.pbtn.line{flex:0 0 260px;background:#fff;color:var(--blue-dark);border:1px solid var(--blue-dark)}
+.pbtn.fill{flex:1;background:var(--grad);color:#fff;border:0}
+.pbtn.sm{height:40px;font-size:15px;font-weight:600;border-radius:8px;background:var(--blue-dark);color:#fff;border:0;padding:0 20px}
+
+/* Produk: foto kiri diam, info kanan scroll sendiri, harga di dasar kolom kanan */
+.pdp{display:grid;grid-template-columns:55% 45%;max-width:1280px;margin:0 auto;height:max(560px,calc(100vh - var(--hh)))}
+.pdp-gallery{display:flex;align-items:center;justify-content:center;padding:30px 90px 30px 100px;min-height:0}
+.pdp-gallery img{width:100%;max-width:410px;max-height:100%;object-fit:contain}
+.pdp-info{display:flex;flex-direction:column;min-height:0;height:100%}
+.pdp-scroll{flex:1;min-height:0;overflow-y:auto;padding:36px 38px 28px 21px;scrollbar-width:thin;scrollbar-color:#b9c3d4 transparent}
+.pdp-tag{font:15px var(--alt);color:var(--blue-dark)}
+.pdp-scroll h1{font:700 40px/54px var(--alt);margin:6px 0 4px;max-width:10.5em}
+.pdp-sub{font:17px var(--alt);color:var(--gray)}
+.pdp-promo{margin-top:56px;padding:22px 20px 20px 22px;border-radius:16px;background:var(--grad);color:#fff;font:16px/1.55 var(--alt)}
+.pdp-promo ul{list-style:none;padding:0}
+.pdp-promo li{padding-left:14px;position:relative}
+.pdp-promo li::before{content:"•";position:absolute;left:0}
+.pdp-scroll h4{font:600 26px var(--alt);margin:48px 0 18px}
+.pdp-model{border:2px solid var(--navy);border-radius:14px;padding:20px;font:700 20px var(--alt)}
+.pdp-warna{font:700 20px var(--alt);margin:46px 0 20px}
+.pdp-sw{display:flex;gap:14px;padding-left:8px}
+.pdp-sw button{width:32px;height:32px;border-radius:50%;border:0}
+.pdp-sw button[aria-pressed=true]{box-shadow:0 0 0 2px #fff,0 0 0 4px #000}
+.pdp-spec{list-style:none;padding:0;font-size:15px}
+.pdp-spec li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #dfe4ec}
+.pdp-spec b{font-weight:600}
+.pdp-note{font-size:15px;line-height:1.7;margin-bottom:12px}
+.pdp-price{flex:none;background:#fff;border-top:1px solid var(--navy);padding:20px 22px 24px 20px}
+.pdp-price .now{font:700 22px/1.3 var(--alt)}
+.pdp-price s{color:var(--gray);font:17px var(--alt)}
+.pdp-price .save{color:var(--red);font:17px var(--alt);margin-left:4px}
+.pdp-actions{display:flex;gap:12px;margin-top:22px;padding-left:2px}
+
+/* Deskripsi */
+.pdp-desc{background:var(--grad);color:#fff;overflow:hidden}
+.pdp-desc .in{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:55% 45%;min-height:638px}
+.pdp-desc .txt{padding:92px 20px 40px 65px}
+.pdp-desc h3{font:700 22px/30px var(--alt);margin-bottom:12px}
+.pdp-desc p,.pdp-desc ul{font:500 22px/33px var(--alt)}
+.pdp-desc ul{padding:0;margin-left:33px}
+.pdp-desc img{width:520px;max-width:100%;margin-left:20px;align-self:start}
+
+/* FAQ (putih, navy) */
+.pfaq .in{max-width:1440px;margin:0 auto;padding:90px 100px 90px 104px;min-height:545px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.pfaq h3{font:700 40px/49px var(--f-head);margin-bottom:16px}
+.pfaq .ask{font:400 18px var(--f-head);margin-bottom:20px}
+.pfaq .ask a{text-decoration:underline}
+.pfaq .pill{display:inline-flex;align-items:center;background:var(--blue-dark);color:#fff;border-radius:99px;height:33px;padding:0 18px;font:700 14px var(--f-head)}
+.pfaq details{border-bottom:1px solid var(--navy);padding:22px 0}
+.pfaq details:first-child{padding-top:16px}
+.pfaq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;font:700 17px/24px var(--f-head);cursor:pointer}
+.pfaq summary::-webkit-details-marker{display:none}
+.pfaq summary::after{content:"+";font-size:14px}
+.pfaq details[open] summary::after{content:"\2013"}
+.pfaq details p{font:400 17px var(--f-head);margin-top:8px}
+
+@media (max-width:900px){
+  .pdp,.pdp-desc .in,.pfaq .in{grid-template-columns:1fr}
+  .pdp{height:auto}
+  .pdp-gallery{padding:30px 40px 0}
+  .pdp-info{height:auto}
+  .pdp-scroll{max-height:60vh;padding:20px}
+  .pdp-scroll h1{font-size:30px;line-height:40px}
+  .pdp-price{padding:20px}
+  .pbtn.line{flex:1}.pbtn{font-size:14px}
+  .pdp-desc .txt{padding:40px 20px 0}
+  .pdp-desc p,.pdp-desc ul{font-size:17px;line-height:27px}
+  .pdp-desc img{margin:0 auto}
+  .pfaq .in{padding:50px 20px 60px;gap:30px;min-height:0}
+  .pfaq h3{font-size:28px;line-height:36px}
+  .sbar{padding:0 16px}.sbar h2{font-size:16px}.mini .p{display:none}
+}
+@media (prefers-reduced-motion:reduce){.sbar,.mini{transition:none}}
